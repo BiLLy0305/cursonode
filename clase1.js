@@ -1,2 +1,3 @@
 console.log('Hola mundo');
-console.log('BC');
+let suma = 123 + 1;
+console.log(suma);  
