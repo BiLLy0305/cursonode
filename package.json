@@ -1,0 +1,23 @@
+{
+  "name": "codigos-curso",
+  "version": "1.0.0",
+  "description": "curso node 2018",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BiLLy0305/cursonode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BiLLy0305/cursonode/issues"
+  },
+  "homepage": "https://github.com/BiLLy0305/cursonode#readme",
+  "dependencies": {
+    "hapi": "^17.7.0"
+  }
+}
