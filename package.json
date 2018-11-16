@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/BiLLy0305/cursonode#readme",
   "dependencies": {
-    "hapi": "^17.7.0"
+    "dotenv": "^6.1.0",
+    "hapi": "^17.7.0",
+    "mongoose": "^5.3.12"
   }
 }
