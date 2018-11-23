@@ -1,8 +1,9 @@
 
 
+require('dotenv').config();
 const Hapi = require('hapi');
-
 const rutas=  require('./routes')
+const db = require('./Config/dtabase').db;
 
 //Crear un servidor
 
