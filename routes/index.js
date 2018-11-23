@@ -7,45 +7,85 @@ const lista = [1,2,3];
 module.exports = [
     {
         method: 'POST',
-        path :'/carro',
-        handler:Handlers.carroHandler.agregarCarros
+        path: '/carro',
+        config: {
+            pre: [
+                
+                    {method: Handlers.preHandler.preValidar, assign: 'preTokenVal'}
+            ]
+        },
+        handler:Handlers.carroHandler.agregarCarrosAsyncAwait
     },
     {
         method: 'GET',
-        path :'/lista/{id}',
-        handler:function(request, h){
-            return {data: lista[request.params.id]};
-                 }
-    },
-    {
-    method: 'GET',
-    path :'/lista',
-    handler:function(request, h){
-        return {data: lista};
-             }
-    },
-    {
-        method: 'POST',
-        path :'/lista',
-        handler:function(request, h){
-        console.log(request.payload);
-            lista.push(request.payload.data);
-            return {data: lista};
-            }
+        path: '/carro',
+        config: {
+            pre: [
+                
+                    {method: Handlers.preHandler.preValidar, assign: 'preTokenVal'}
+            ]
+        },
+        handler:Handlers.carroHandler.listarCarrosAsyncAwait
     },
     {
         method: 'PUT',
-        path :'/lista/{index}',
-        handler:function(request, h){
-            lista[request.params.index]  = request.payload.data;
-            return {data: lista};
-                 }
-     },{
+        config: {
+            pre: [
+                
+                    {method: Handlers.preHandler.preValidar, assign: 'preTokenVal'}
+            ]
+        },
+        path: '/carro/{index}',
+        handler: Handlers.carroHandler.actualizarCarrosAsyncAwait
+    },
+    {
         method: 'DELETE',
-        path :'/lista/{index}',
-        handler:function(request, h){
-            lista.splice[request.params.index];
+        config: {
+            pre: [
+                
+                    {method: Handlers.preHandler.preValidar, assign: 'preTokenVal'}
+            ]
+        },
+        path: '/carro/{index}',
+        handler: Handlers.carroHandler.borrarCarroAsyncAwait
+    },
+    {
+        method: 'GET',
+        path: '/lista/{id}',
+        handler: (req, h)=>{
+            return {data: lista[req.params.id]};
+        }
+    },
+    {
+        method: 'GET',
+        path: '/lista',
+        handler: (req, h)=>{
+            console.log(req.query);
             return {data: lista};
-                 }
-     }
-]
+        }
+    },
+    {
+        method: 'POST',
+        path: '/lista',
+        handler: (req, h)=>{
+            lista.push(req.payload.data);
+            return {data: lista};
+        }
+    },
+    {
+        method: 'PUT',
+        path: '/lista/{index}',
+        handler: (req, h)=>{
+            lista[req.params.index] = req.payload.data;
+            return {data: lista};
+        }
+    },
+    {
+        method: 'DELETE',
+        path: '/lista/{index}',
+        handler: (req, h)=>{
+            lista.splice(req.params.index, 1);
+            return {data: lista};
+        }
+    }
+];
