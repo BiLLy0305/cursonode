@@ -8,7 +8,17 @@ module.exports = [
     {
         method: 'POST',
         path :'/carro',
-        handler:Handlers.carroHandler.agregarCarros
+        handler:Handlers.carroHandler.agregarCarrosAsyncAwait
+    },
+    {
+        method: 'GET',
+        path :'/carro',
+        handler:Handlers.carroHandler.listarCarrosAsyncAwait
+    },
+    {
+        method: 'POST',
+        path :'/carro/color',
+        handler:Handlers.carroHandler.buscarUno
     },
     {
         method: 'GET',
